@@ -1,6 +1,70 @@
-<div class="hero-unit">
-  <h1>Here's my list of objects</h1>
-  <ul>
-      <li ng-repeat="object in objects">{{object.name}}</li>
-  </ul>
+<div class="jumbotron">
+    <h2>Website list</h2>
+    <form class="form-inline" role="form" name="websiteForm" novalidate>
+        <div class="form-group">
+            <label class="sr-only" for="newWebsiteName">Name</label>
+            <input
+            type="text"
+            class="form-control"
+            name="websiteName"
+            placeholder="Name"
+            ng-model="newWebsite.name"
+            id="newWebsiteName"
+            ng-maxlength="10"
+            required
+            >
+        </div>
+
+        <div class="form-group">
+            <label class="sr-only" for="newWebsiteUrl">Website</label>
+            <input
+            type="url"
+            class="form-control"
+            name="websiteUrl"
+            placeholder="Website"
+            ng-model="newWebsite.url"
+            id="newWebsiteUrl"
+            ng-maxlength="50"
+            required
+            >
+        </div>
+
+        <button type="submit" class="btn btn-default" ng-click="addWebsite($event)">Salva</button>
+    </form>
+    <ng-include src="alert_visible"></ng-include>
+    <div class="alert alert-block alert-danger fade in" ng-show="websiteForm.websiteUrl.$error.maxlength">
+        <h3>Errore!</h3>
+        <p ng-show="websiteForm.websiteUrl.$error.maxlength">Massimo 50 caratteri consentiti per il sito web</p>
+    </div>
+    <div class="alert alert-block alert-danger fade in" ng-show="websiteForm.websiteName.$error.maxlength">
+        <h3>Errore!</h3>
+        <p ng-show="websiteForm.websiteName.$error.maxlength">Massimo 10 caratteri consentiti</p>
+    </div>
+</div>
+<div class="row" ng-show="objects.length > 0">
+    <div class="col-lg-8 col-md-offset-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Website</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="object in objects">
+                    <td>
+                        {{object.name}}
+                    </td>
+                    <td>
+                        {{object.url}}
+                    </td>
+                    <td>
+                        <a class="btn btn-info" href="/#/edit/{{object.id}}">Modifica</a>
+                        <button class="btn btn-danger" ng-click="deleteWebsite($index, object)">Cancella</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

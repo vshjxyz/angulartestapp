@@ -5,11 +5,29 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 html, body {
-  margin: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-    background: #fafafa;
+    background: #CDCDCD;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+}
+
+.container {
+    background: #2980b9;
+    color: #ecf0f1;
+    padding-top: 20px;
+    .jumbotron {
+        color: black;
+    }
+}
+
+input.ng-invalid {
+    border-color: #b94a48;
+}
+
+input[required].ng-pristine {
+    border-color: #cccccc;
 }

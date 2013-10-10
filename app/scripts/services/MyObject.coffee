@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('TestApp.services', ['ngResource']).factory 'MyObject',['$resource', '$http', ($resource, $http) ->
-    $resource 'http://localhost:8000\:8000/pos/pos/poslist/', {}, {
+angular.module('TestApp.services').factory 'MyObject', ['$resource', '$http', ($resource, $http) ->
+    $resource 'http://localhost:8000\:8000/Website/Website/Websitelist/:id', { id: '@id' }, {
         query:
             method: 'GET'
             isArray: true
