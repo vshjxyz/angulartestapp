@@ -9,8 +9,8 @@ How to run the app
 ---
 
 1. Clone this repo using `git clone https://github.com/vshjxyz/angulartestapp`
-2. run `cd angulartestapp && git checkout tutorial`
+2. run `cd angulartestapp && git checkout examples-01`
 3. install all the dependencies using `npm install && bower install`
 4. run `grunt server` and navigate to `http://localhost:9000` to see the running application
 
-you can skip the `checkout tutorial` bit if you just want the master version of this repo, it will include an "evolved" version of the application explained in the tutorial
+you can skip the `git checkout examples-01` bit if you just want the master version of this repo, it will include an "evolved" version of the application explained in the tutorial
